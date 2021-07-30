@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ExecutionActionPromoter implements ActionPromoter {
     @Override
-    public List<AnAction> promote(@NotNull List<AnAction> actions, @NotNull DataContext context) {
+    public List<AnAction> promote(@NotNull List<? extends AnAction> actions, @NotNull DataContext context) {
         final VirtualFile data = context.getData(CommonDataKeys.VIRTUAL_FILE);
         if (!QFileType.is(data)) {
             return null;
